@@ -7,8 +7,8 @@ ADD package/etc/apt /usr/temp
 ADD package/usr/lib/x86_64-linux-gnu /usr/lib/x86_64-linux-gnu
 ADD package/lib/x86_64-linux-gnu /lib/x86_64-linux-gnu
 
-RUN apt-get update \
-	&& cp /usr/temp/* /etc/apt/
+RUN cp /usr/temp/* /etc/apt/ \
+	&& apt-get update
 
 ENV QTDIR=/opt/Qt5.12.0/5.12.0/gcc_64
 ENV PATH=$QTDIR/bin:$PATH
